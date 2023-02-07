@@ -1,12 +1,10 @@
 import './App.css';
-import Board from './components/Board';
+import TicTacToe from './components/TicTacToe';
 
 function App() {
-  let board = Array(9).fill('X');
-
   return (
     <div>
-      <Board board={board} />
+      <TicTacToe />
     </div>
   );
 }
