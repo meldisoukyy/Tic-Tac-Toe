@@ -1,8 +1,12 @@
 import './App.css';
+import Cell from './components/Cell';
 
 function App() {
   return (
-    <h1>Hello World!</h1>
+    <div>
+      <Cell value='X' />
+      <Cell value='O' />
+    </div>
   );
 }
 
