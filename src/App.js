@@ -1,11 +1,12 @@
 import './App.css';
-import Cell from './components/Cell';
+import Board from './components/Board';
 
 function App() {
+  let board = Array(9).fill('X');
+
   return (
     <div>
-      <Cell value='X' />
-      <Cell value='O' />
+      <Board board={board} />
     </div>
   );
 }
