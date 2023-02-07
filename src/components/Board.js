@@ -4,8 +4,8 @@ import './Board.css';
 
 function Board({ board }) {
   let cells = [];
-  board.forEach(element => {
-    cells.push(<Cell value={element} />);
+  board.forEach((element, idx) => {
+    cells.push(<Cell key={'cell ' + idx.toString()} value={element} />);
   });
 
   return (
