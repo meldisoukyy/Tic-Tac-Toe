@@ -17,12 +17,12 @@ export default function Status({ nextPlayer, winner, isFull }) {
     oAttr = 'winner';
   }
 
-  xStatus = (winner === 'X') ? 'X - Win' : (winner === 'O' ? ':(' : 'X');
-  oStatus = (winner === 'O') ? 'O - Win' : (winner === 'X' ? ':(' : 'O');
+  xStatus = (winner === 'X') ? 'WINNER' : (winner === 'O' ? 'LOSER' : 'X');
+  oStatus = (winner === 'O') ? 'WINNER' : (winner === 'X' ? 'LOSER' : 'O');
 
   if (isFull) {
-    xStatus = 'Tie';
-    oStatus = '-_-';
+    xStatus = 'TIE';
+    oStatus = 'TIE';
     xAttr = 'winner';
     oAttr = 'winner';
   }
