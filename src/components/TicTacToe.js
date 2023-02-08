@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Board from './Board';
+import Status from './Status';
 
 const WIN_CONDITIONS = [
   [0, 1, 2],
@@ -15,7 +16,7 @@ const WIN_CONDITIONS = [
 function TicTacToe() {
   const [board, setBoard] = useState(Array(9).fill(''));
   const [xIsNext, setXIsNext] = useState(true);
-  const [status, setStatus] = useState('Start of the Game!');
+  const [winner, setWinner] = useState(null);
 
   const checkWinner = (board) => {
     for (let i = 0; i < WIN_CONDITIONS.length; i++) {
@@ -41,19 +42,13 @@ function TicTacToe() {
     }
     setXIsNext(!xIsNext);
     setBoard(newBoard);
-
-    const winner = checkWinner(newBoard);
-    if (winner) {
-      setStatus('Winner is: ' + winner);
-    } else {
-      setStatus('Next Player is:' + (xIsNext? 'X':'O'));
-    }
+    setWinner(checkWinner(newBoard));
   }
 
 
   return (
     <div>
-      <h1>{status}</h1>
+      <Status nextPlayer={(xIsNext? 'X' : 'O')} winner={winner} />
       <Board board={board} cellClicked={handleClickedCell} />
     </div>
   );
