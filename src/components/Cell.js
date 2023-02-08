@@ -8,7 +8,9 @@ function Cell({ value, onClick, disactive, cursorDisactive }) {
     <button
       className={style + (disactive ? ' disactive' : '') + (cursorDisactive ? ' cursorDisactive' : '')}
       onClick={onClick}
-    >{value}</button>
+    >
+      {value}
+    </button>
   );
 }
 

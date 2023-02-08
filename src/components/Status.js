@@ -23,8 +23,8 @@ export default function Status({ nextPlayer, winner, isFull }) {
   if (isFull) {
     xStatus = 'Tie';
     oStatus = '-_-';
-    xAttr = 'null';
-    oAttr = 'null';
+    xAttr = 'winner';
+    oAttr = 'winner';
   }
 
   return (
