@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import './TicTacToe.css';
 import Board from './Board';
 import Status from './Status';
+import Reset from './Reset';
 
 const WIN_CONDITIONS = [
   [0, 1, 2],
@@ -53,11 +55,22 @@ function TicTacToe() {
     setFullBoard(checkFullBoard(newBoard));
   }
 
+  const handleResetButton = () => {
+    let newBoard = board.slice();
+    let newWinningIndices = winIndices.slice();
+  
+    setBoard(newBoard.map(element => element = null));
+    setXIsNext(true);
+    setWinner(null);
+    setWinIndices(newWinningIndices.map(element => element = null));
+    setFullBoard(false);
+  }
 
   return (
-    <div>
+    <div className='tictactoe'>
       <Status nextPlayer={(xIsNext? 'X' : 'O')} winner={winner} isFull={fullBoard} />
       <Board board={board} cellClicked={handleClickedCell} isGameEnded={winner || fullBoard} winIndices={winIndices}/>
+      <Reset buttonClicked={handleResetButton} />
     </div>
   );
 }

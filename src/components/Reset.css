@@ -1,0 +1,26 @@
+.reset {
+  margin: 40px;
+
+  background-color: #218ae0;
+
+  border: none;
+  border-radius: 10px;
+
+  font-family: 'Fredoka One', cursive;
+  color: white;
+  font-size: 3em;
+
+  width: 32rem;
+  height: 4rem;
+  line-height: 1rem;
+  text-align: center;
+
+  cursor: pointer;
+}
+
+.reset:hover {
+  background-color: white;
+  color: #218ae0;
+  border: #218ae0 2px solid;
+  box-shadow: 0px 0px 8px 1px #888;
+}
