@@ -17,6 +17,7 @@ function TicTacToe() {
   const [board, setBoard] = useState(Array(9).fill(null));
   const [xIsNext, setXIsNext] = useState(true);
   const [winner, setWinner] = useState(null);
+  const [winIndices, setWinIndices] = useState(Array(3).fill(null));
   const [fullBoard, setFullBoard] = useState(false);
 
   const checkWinner = (board) => {
@@ -24,6 +25,7 @@ function TicTacToe() {
       const [x, y, z] = WIN_CONDITIONS[i];
 
       if (board[x] && board[x] === board[y] && board[x] === board[z]) {
+        setWinIndices([x, y, z]);
         return board[x];
       }
     }
@@ -55,7 +57,7 @@ function TicTacToe() {
   return (
     <div>
       <Status nextPlayer={(xIsNext? 'X' : 'O')} winner={winner} isFull={fullBoard} />
-      <Board board={board} cellClicked={handleClickedCell} />
+      <Board board={board} cellClicked={handleClickedCell} isGameEnded={winner || fullBoard} winIndices={winIndices}/>
     </div>
   );
 }
