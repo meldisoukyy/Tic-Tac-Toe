@@ -39,7 +39,7 @@ function TicTacToe() {
 
   const handleClickedCell = (idx) => {
     // If the cell has already a value, then do nothing.
-    if (board[idx]) return;
+    if (board[idx] || winner) return;
 
     let newBoard = board.slice();
     if (xIsNext) {
