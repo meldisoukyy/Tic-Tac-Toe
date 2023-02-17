@@ -10,7 +10,7 @@ function Board({ board, cellClicked, isGameEnded, winIndices }) {
         key={'cell ' + idx.toString()}
         value={element}
         onClick={() => cellClicked(idx)}
-        disactive={isGameEnded && !winIndices.find(element => element === idx)}
+        disactive={isGameEnded && (winIndices.find(element => element === idx) === undefined)}
         cursorDisactive={isGameEnded}
       />);
   });
